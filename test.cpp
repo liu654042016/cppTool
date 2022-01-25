@@ -1,10 +1,22 @@
 #include <iostream>
 #include "RuningTime.hpp"
 
+
+#define TIMER_START(_TimerName) \
+RuningTimer _TimerName; \
+_TimerName.Start(); 
+
+#define TIMER_END(_TimerName) \
+_TimerName.Stop(); \
+_TimerName.ShowCostTime();
+
+
 int main() {
-  //  Sleep(3000);
+  TIMER_START(_print)
+    Sleep(3000);
     std::cout << "Hello, world!\n";
-   // Sleep(3000);
+  TIMER_END(_print)
+    Sleep(3000);
     std::cout<<"end"<<std::endl;
     return 1;
 }
